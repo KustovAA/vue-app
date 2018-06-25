@@ -8,13 +8,11 @@ export default context => {
         const { app, router } = createApp();
 
         // set server-side router's location
-        console.log(context.url);
         router.push(context.url);
         
         // wait until router has resolved possible async components and hooks
         router.onReady(() => {
             const matchedComponents = router.getMatchedComponents();
-            console.log('asd', matchedComponents)
             // no matched routes, reject with 404
             if (!matchedComponents.length) {
                 console.log('err')

@@ -27,9 +27,7 @@ server.get('*', (req, res) => {
                 <meta description="vuejs server side render">
             `
         };
-        console.log('app___', app)
         renderer.renderToString(app, context, function (err, html) {
-            console.log('err___', err)
             if (err) {
               if (err.code === 404) {
                 res.status(404).end('Page not found')
